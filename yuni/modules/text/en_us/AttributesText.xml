@@ -2,10 +2,10 @@
 <Database>
 	<EnglishText>
 		<Row Tag="LOC_MOD_ATTRIBUTE_CULTURAL_LEGEND_YUNI_L1_DESCRIPTION">
-			<Text>Legend Unlock. +15% [icon:YIELD_PRODUCTION]Production towards constructing Buildings and Wonders with Great Works slots.</Text>
+			<Text>{LOC_MOD_ATTRIBUTE_LEGEND_UNLOCK} {LOC_MOD_ATTRIBUTE_CULTURAL_LEGEND_CATHERINE_L1_DESCRIPTION_BASE}</Text>
 		</Row>
 		<Row Tag="LOC_MOD_ATTRIBUTE_SCIENTIFIC_LEGEND_YUNI_L2_DESCRIPTION">
-			<Text>Legend Unlock. +1 to the adjacencies of standard [icon:YIELD_GOLD]Gold, [icon:YIELD_PRODUCTION]Production, and [icon:YIELD_SCIENCE]Science Buildings.</Text>
+			<Text>{LOC_MOD_ATTRIBUTE_LEGEND_UNLOCK} {LOC_MOD_ATTRIBUTE_SCIENTIFIC_LEGEND_CATHERINE_L2_DESCRIPTION_BASE}</Text>
 		</Row>
 	</EnglishText>
 </Database>

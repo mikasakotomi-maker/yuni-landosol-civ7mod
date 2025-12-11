@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
-	<Modifier id="YUNI_MOD_SCIENCE_BUILDING_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
-		<Argument name="Tag">SCIENCE</Argument>
-		<Argument name="YieldType">YIELD_CULTURE</Argument>
-		<Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+	<Modifier id="YUNI_MOD_SCIENCE_BUILDING_PURCHASE_RATE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
+		<Argument name="Percent">50</Argument>
+		<Argument name="BuildingTag">SCIENCE</Argument>
 		<Argument name="Tooltip">LOC_TRAIT_LEADER_YUNI_ABILITY_NAME</Argument>
-		<String context="Description">LOC_TRAIT_LEADER_YUNI_ABILITY_NAME</String>
 	</Modifier>
-	<Modifier id="YUNI_MOD_EXPLORED_TILE_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD">
+	<Modifier id="YUNI_MOD_ATTACH_SCIENCE_BUILDING_CIVIC_BOOST" collection="COLLECTION_PLAYER_CONSTRUCTIBLES" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_PLAYER_HAS_EXPLORED_X_TILES">
-				<Argument name="Threshold">100</Argument>
-				<Argument name="Repeatable">true</Argument>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">SCIENCE</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="YieldType">YIELD_SCIENCE</Argument>
-		<Argument name="Amount" type="ScaleByGameAge" extra="100">50</Argument>
+		<Argument name="ModifierId">YUNI_SCIENCE_BUILDING_CIVIC_BOOST_ON_COMPLETE</Argument>
+	</Modifier>
+	<Modifier id="YUNI_SCIENCE_BUILDING_CIVIC_BOOST_ON_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" run-once="true" permanent="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="SystemType">SYSTEM_CULTURE</Argument>
+		<Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_ANY_UNLOCKED</Argument>
+		<Argument name="BoostPercentage">50</Argument>
 	</Modifier>
 	<Modifier id="YUNI_MOD_AGENDA_ROMANCE_OF_ARTS_SCHOLARS" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
 		<String context="Name">LOC_DIPLOMACY_AGENDA_ROMANCE_OF_ARTS_SCHOLARS_NAME</String>

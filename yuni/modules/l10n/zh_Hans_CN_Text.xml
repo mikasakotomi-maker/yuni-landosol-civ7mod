@@ -5,13 +5,13 @@
       <Text>优妮探索时代传奇文化</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_YUNI_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在此时代中+15%[icon:YIELD_CULTURE]文化值，但-10%[icon:YIELD_Science]科技值</Text>
+      <Text>{LOC_CARD_AT_EXP_LEGEND_CATHERINE_1_DESCRIPTION}</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_YUNI_2_NAME" Language="zh_Hans_CN">
       <Text>优妮探索时代传奇科技</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_YUNI_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在此时代中+15%[icon:YIELD_SCIENCE]科技值，但-10%[icon:YIELD_CULTURE]文化值</Text>
+      <Text>{LOC_CARD_AT_EXP_LEGEND_CATHERINE_2_DESCRIPTION}</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AQ_YUNI_SCIENCE_NAME" Language="zh_Hans_CN">
       <Text>{LOC_TRAIT_LEADER_YUNI_ABILITY_NAME}</Text>
@@ -24,13 +24,13 @@
       <Text>优妮近世时代传奇文化</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_YUNI_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在此时代中+15%[icon:YIELD_CULTURE]文化值，但-10%[icon:YIELD_Science]科技值</Text>
+      <Text>{LOC_CARD_AT_MOD_LEGEND_CATHERINE_1_DESCRIPTION}</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_YUNI_2_NAME" Language="zh_Hans_CN">
       <Text>优妮近世时代传奇科技</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_YUNI_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在此时代中+15%[icon:YIELD_SCIENCE]科技值，但-10%[icon:YIELD_CULTURE]文化值</Text>
+      <Text>{LOC_CARD_AT_MOD_LEGEND_CATHERINE_2_DESCRIPTION}</Text>
     </Replace>
     <Replace Tag="LOC_CARD_EX_YUNI_SCIENCE_NAME" Language="zh_Hans_CN">
       <Text>{LOC_TRAIT_LEADER_YUNI_ABILITY_NAME}</Text>
@@ -40,17 +40,17 @@
     </Replace>
 
     <Replace Tag="LOC_MOD_ATTRIBUTE_CULTURAL_LEGEND_YUNI_L1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>传奇解锁。建造拥有巨作槽位的建筑和奇观时+15%[icon:YIELD_PRODUCTION]生产力效用。</Text>
+      <Text>{LOC_MOD_ATTRIBUTE_LEGEND_UNLOCK} {LOC_MOD_ATTRIBUTE_CULTURAL_LEGEND_CATHERINE_L1_DESCRIPTION_BASE}</Text>
     </Replace>
     <Replace Tag="LOC_MOD_ATTRIBUTE_SCIENTIFIC_LEGEND_YUNI_L2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>传奇解锁。标准[icon:YIELD_GOLD]金币、[icon:YIELD_PRODUCTION]生产力和[icon:YIELD_SCIENCE]科技值建筑相邻加成+1。</Text>
+      <Text>{LOC_MOD_ATTRIBUTE_LEGEND_UNLOCK} {LOC_MOD_ATTRIBUTE_SCIENTIFIC_LEGEND_CATHERINE_L2_DESCRIPTION_BASE}</Text>
     </Replace>
 
     <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_TITLE" Language="zh_Hans_CN">
       <Text>{LOC_LEADER_YUNI_NAME}</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
-      <Text>占位。</Text>
+      <Text>圣特蕾莎女子学院公认的才女优妮的智慧远超过同龄人，因此获得了独占校内的老图书馆楼“象牙塔”的特权。她发现了她所在的阿斯特莱亚世界的虚构本质，然而兰德索尔学界却从未认真看待过她的理论。无法独自对抗虚伪世界的优妮选择放下对真相的研究而尽情享受青春年华，但她的所知却一直留存在她的笔记本中，用以在时机合适时证明她的远见。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_YUNI_CHAPTER_HISTORY_PARA_2" Language="zh_Hans_CN">
       <Text>占位。</Text>
@@ -126,16 +126,16 @@
     </Replace>
 
     <Replace Tag="LOC_LEADER_YUNI_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>可使用独特的传承卡，用以在下个时代保留一种科技值建筑的基础产出、相邻加成和效果。科技值建筑+2[icon:YIELD_CULTURE]文化值，按时代叠加。你的单位每探索100个地块，便+50[icon:YIELD_SCIENCE]科技值，按时代叠加。</Text>
+      <Text>可使用独特的传承卡，用以在下个时代保留一种[icon:YIELD_SCIENCE]科技值建筑的基础产出、相邻加成和效果。建成一座[icon:YIELD_SCIENCE]科技值建筑时获得一个可研究的最早期[icon:RADIAL_CIVICS]市政的进度提升。购买[icon:YIELD_SCIENCE]科技值建筑时+50%[icon:YIELD_GOLD]金币效用。</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_YUNI_ABILITY_NAME" Language="zh_Hans_CN">
       <Text>博学者的教诲</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_YUNI_ABILITY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[LIST][LI]可使用独特的[B]传承卡[/B]，用以在下个时代保留一种[B]科技值建筑[/B]的基础产出、相邻加成和效果。[LI][B]科技值建筑+2[icon:YIELD_CULTURE]文化值[/B]，按时代叠加。[LI]你的单位每[B]探索100个地块[/B]，便[B]+50[icon:YIELD_SCIENCE]科技值[/B]，按时代叠加。[/LIST]</Text>
+      <Text>[LIST][LI]可使用独特的[B]传承卡[/B]，用以在下个时代保留一种[icon:YIELD_SCIENCE][B]科技值建筑[/B]的基础产出、相邻加成和效果。[LI][B]建成[/B]一座[icon:YIELD_SCIENCE][B]科技值建筑[/B]时获得一项可研究的最早期[icon:RADIAL_CIVICS][B]市政[/B]的进度提升[/B]。[LI]购买[icon:YIELD_SCIENCE][B]科技值建筑[/B]时[B]+50%[icon:YIELD_GOLD]金币效用[/B]。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_YUNI" Language="zh_Hans_CN">
-      <Text>圣特蕾莎女子学院公认的才女优妮的智慧远超过同龄人，因此获得了独占校内的老图书馆楼“象牙塔”的特权。她发现了她所在的阿斯特莱亚世界的虚构本质，然而兰德索尔学界却从未认真看待过她的理论。无法独自对抗虚伪世界的优妮选择放下对真相的研究而尽情享受青春年华，但她的所知却一直留存在她的笔记本中，用以在时机合适时证明她的远见。</Text>
+      <Text>正在编写</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_YUNI" Language="zh_Hans_CN">
       <Text>图书馆的小小贤者</Text>
@@ -144,7 +144,7 @@
     <Replace Tag="LOC_MEMENTO_YUNI_ROSETTA_UNLOCK_TITLE" Language="zh_Hans_CN">
       <Text>在优妮2级时解锁</Text>
     </Replace>
-    <Replace Tag="LOC_MEMENTO_YUNI_YUNICOPTER_UNLOCK_TITLE" Language="zh_Hans_CN">
+    <Replace Tag="LOC_MEMENTO_YUNI_YUNI_S_NOTEBOOK_UNLOCK_TITLE" Language="zh_Hans_CN">
       <Text>在优妮5级时解锁</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_UNLOCK_TITLE" Language="zh_Hans_CN">
@@ -157,16 +157,16 @@
       <Text>会聊天的硅基生物。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_YUNI_ROSETTA_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>科技值建筑+1[icon:YIELD_SCIENCE]科技值，按时代叠加。</Text>
+      <Text>可以在[icon:YIELD_TOWNS]城镇中购买[icon:YIELD_SCIENCE]科技值建筑。</Text>
     </Replace>
-    <Replace Tag="LOC_MEMENTO_YUNI_YUNICOPTER_NAME" Language="zh_Hans_CN">
-      <Text>优妮旋翼机</Text>
+    <Replace Tag="LOC_MEMENTO_YUNI_YUNI_S_NOTEBOOK_NAME" Language="zh_Hans_CN">
+      <Text>优妮的笔记本</Text>
     </Replace>
-    <Replace Tag="LOC_MEMENTO_YUNI_YUNICOPTER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>这名字比“优妮翼机”好点。</Text>
+    <Replace Tag="LOC_MEMENTO_YUNI_YUNI_S_NOTEBOOK_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>这个世界是场游戏。</Text>
     </Replace>
-    <Replace Tag="LOC_MEMENTO_YUNI_YUNICOPTER_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>你的单位每探索100个地块，便+50[icon:YIELD_CULTURE]文化值。</Text>
+    <Replace Tag="LOC_MEMENTO_YUNI_YUNI_S_NOTEBOOK_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>建成一座[icon:YIELD_CULTURE]文化值建筑时获得一项可研究的最早期[icon:RADIAL_TECH]科技的进度提升。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_NAME" Language="zh_Hans_CN">
       <Text>笔斧复制品</Text>
@@ -175,7 +175,7 @@
       <Text>笔强于剑，于斧则不然。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>每有一个步兵单位，便+2[icon:YIELD_CULTURE]文化值。</Text>
+      <Text>科技值建筑+1[icon:YIELD_CULTURE]文化值，按时代叠加。</Text>
     </Replace>
 
     <!--Name: the text for the choice. Description: The reward that granted by the story. Storytitle: Flavor text title shown when the story happens (mission finished). Completion: Flavor text shown when the story happens. Imperative: The mission that make the story happens. If a story doesn't need a mission to be finished, it will only have Storytitle and Completion.-->

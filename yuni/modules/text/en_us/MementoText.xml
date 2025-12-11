@@ -4,7 +4,7 @@
 		<Row Tag="LOC_MEMENTO_YUNI_ROSETTA_UNLOCK_TITLE">
 			<Text>Unlock at Yuni level 2</Text>
 		</Row>
-		<Row Tag="LOC_MEMENTO_YUNI_YUNICOPTER_UNLOCK_TITLE">
+		<Row Tag="LOC_MEMENTO_YUNI_YUNI_S_NOTEBOOK_UNLOCK_TITLE">
 			<Text>Unlock at Yuni level 5</Text>
 		</Row>
 		<Row Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_UNLOCK_TITLE">
@@ -17,16 +17,16 @@
 			<Text>A talking silicon-based lifeform.</Text>
 		</Row>
 		<Row Tag="LOC_MEMENTO_YUNI_ROSETTA_FUNCTIONAL_DESCRIPTION">
-			<Text>+1[icon:YIELD_SCIENCE] Science per Age on Science Buildings.</Text>
+			<Text>Can purchase [icon:YIELD_SCIENCE] Science Buildings in [icon:YIELD_TOWNS] Towns.</Text>
 		</Row>
-		<Row Tag="LOC_MEMENTO_YUNI_YUNICOPTER_NAME">
-			<Text>Yunicopter</Text>
+		<Row Tag="LOC_MEMENTO_YUNI_YUNI_S_NOTEBOOK_NAME">
+			<Text>Yuni's Notebook</Text>
 		</Row>
-		<Row Tag="LOC_MEMENTO_YUNI_YUNICOPTER_DESCRIPTION">
-			<Text>This name sounds better than "Yunipter".</Text>
+		<Row Tag="LOC_MEMENTO_YUNI_YUNI_S_NOTEBOOK_DESCRIPTION">
+			<Text>The world is a game.</Text>
 		</Row>
-		<Row Tag="LOC_MEMENTO_YUNI_YUNICOPTER_FUNCTIONAL_DESCRIPTION">
-			<Text>+50[icon:YIELD_Culture] Culture for every 100 Tiles Explored by your Units.</Text>
+		<Row Tag="LOC_MEMENTO_YUNI_YUNI_S_NOTEBOOK_FUNCTIONAL_DESCRIPTION">
+			<Text>Gain a boost to the earliest available [icon:RADIAL_TECH]Technology when a [icon:YIELD_CULTURE]Culture Building is completed.</Text>
 		</Row>
 		<Row Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_NAME">
 			<Text>Pen-Axe Replica</Text>
@@ -35,7 +35,7 @@
 			<Text>Pen is mightier, but not than axe.</Text>
 		</Row>
 		<Row Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_FUNCTIONAL_DESCRIPTION">
-			<Text>+2[icon:YIELD_Culture] Culture for every Infantry Unit.</Text>
+			<Text>+1[icon:YIELD_Culture] Culture per Age on Science Buildings.</Text>
 		</Row>
 	</EnglishText>
 </Database>

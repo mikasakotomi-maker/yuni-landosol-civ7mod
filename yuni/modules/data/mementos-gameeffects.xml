@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
-    <Modifier id="MEMENTO_YUNI_ROSETTA_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
-        <Argument name="Tag">SCIENCE</Argument>
-        <Argument name="YieldType">YIELD_SCIENCE</Argument>
-        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    <Modifier id="MEMENTO_YUNI_ROSETTA_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_TOWN_CAN_PURCHASE_TAGGED_CONSTRUCTIBLES">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+        </SubjectRequirements>
+        <Argument name="ConstructibleTag">SCIENCE</Argument>
         <Argument name="Tooltip">LOC_MEMENTO_YUNI_ROSETTA_NAME</Argument>
-        <String context="Description">LOC_MEMENTO_YUNI_ROSETTA_FUNCTIONAL_DESCRIPTION</String>
     </Modifier>
-    <Modifier id="MEMENTO_YUNI_YUNICOPTER_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD">
+    <Modifier id="MEMENTO_YUNI_YUNI_S_NOTEBOOK_MODIFIER" collection="COLLECTION_PLAYER_CONSTRUCTIBLES" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
         <SubjectRequirements>
-            <Requirement type="REQUIREMENT_PLAYER_HAS_EXPLORED_X_TILES">
-                <Argument name="Threshold">100</Argument>
-                <Argument name="Repeatable">true</Argument>
+            <Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+                <Argument name="Tag">CULTURE</Argument>
             </Requirement>
         </SubjectRequirements>
-        <Argument name="YieldType">YIELD_CULTURE</Argument>
-        <Argument name="Amount">50</Argument>
+        <Argument name="ModifierId">YUNI_S_NOTEBOOK_CULTURE_BUILDING_TECH_BOOST_ON_COMPLETE</Argument>
     </Modifier>
-    <Modifier id="MEMENTO_YUNI_PEN_AXE_REPLICA_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_PLAYER_YIELD">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
-                <Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
-            </Requirement>
-        </SubjectRequirements>
+    <Modifier id="YUNI_S_NOTEBOOK_CULTURE_BUILDING_TECH_BOOST_ON_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" run-once="true" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="SystemType">SYSTEM_TECH</Argument>
+        <Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_ANY_UNLOCKED</Argument>
+        <Argument name="BoostPercentage">50</Argument>
+    </Modifier>
+    <Modifier id="MEMENTO_YUNI_PEN_AXE_REPLICA_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+        <Argument name="Tag">SCIENCE</Argument>
         <Argument name="YieldType">YIELD_CULTURE</Argument>
-        <Argument name="Amount">2</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tooltip">LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_NAME</Argument>
+        <String context="Description">LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_FUNCTIONAL_DESCRIPTION</String>
     </Modifier>
 </GameEffects>

@@ -5,13 +5,13 @@
 			<Text>Yuni</Text>
 		</Row>
 		<Row Tag="LOC_LEADER_YUNI_DESCRIPTION">
-			<Text>Have access to unique Legacy Cards which let you retain base yields, adjacency bonuses, and effects of one kind of Science Buildings in the next age. +2[icon:YIELD_CULTURE] Culture per Age on Science Buildings. +50[icon:YIELD_SCIENCE] Science per Age for every 100 Tiles Explored by your Units.</Text>
+			<Text>Have access to unique Legacy Cards which let you retain base yields, adjacency bonuses, and effects of one kind of [icon:YIELD_SCIENCE]Science Buildings in the next age. Gain a boost to the earliest available [icon:RADIAL_CIVICS]Civic when a [icon:YIELD_SCIENCE]Science Building is completed. +50% [icon:YIELD_GOLD] Gold towards purchasing [icon:YIELD_SCIENCE]Science Buildings.</Text>
 		</Row>
 		<Row Tag="LOC_TRAIT_LEADER_YUNI_ABILITY_NAME">
 			<Text>Teachings of Erudites</Text>
 		</Row>
 		<Row Tag="LOC_TRAIT_LEADER_YUNI_ABILITY_DESCRIPTION">
-			<Text>[LIST][LI]Have access to unique [B]Legacy Cards[/B] which retain base yields, adjacency bonuses, and effects of one kind of [B]Science Buildings[/B] in the next age.[LI][B]+2[icon:YIELD_CULTURE] Culture[/B] per Age on [B]Science Buildings[/B].[LI][B]+50[icon:YIELD_SCIENCE] Science[/B] per Age for every [B]100 Tiles Explored[/B] by your Units.[/LIST]</Text>
+			<Text>[LIST][LI]Have access to unique [B]Legacy Cards[/B] which retain base yields, adjacency bonuses, and effects of one kind of [icon:YIELD_SCIENCE][B]Science Buildings[/B] in the next age.[LI]Gain a [B]boost[/B] to the earliest available [icon:RADIAL_CIVICS][B]Civic[/B] when a [icon:YIELD_SCIENCE][B]Science Building[/B] is [B]completed[/B].[LI][B]+50% [icon:YIELD_GOLD] Gold[/B] towards purchasing [icon:YIELD_SCIENCE][B]Science Buildings[/B].[/LIST]</Text>
 		</Row>
 	</EnglishText>
 </Database>

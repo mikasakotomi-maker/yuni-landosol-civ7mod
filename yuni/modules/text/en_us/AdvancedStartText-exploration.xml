@@ -5,14 +5,14 @@
 			<Text>Yuni Exploration Legend Cultural</Text>
 		</Row>
 		<Row Tag="LOC_CARD_AT_EXP_LEGEND_YUNI_1_DESCRIPTION">
-			<Text>For this Age, gain +15% CULTURE[icon:YIELD_CULTURE] at the cost of -10% Science[icon:YIELD_Science]</Text>
+			<Text>{LOC_CARD_AT_EXP_LEGEND_CATHERINE_1_DESCRIPTION}</Text>
 		</Row>
 
 		<Row Tag="LOC_CARD_AT_EXP_LEGEND_YUNI_2_NAME">
 			<Text>Yuni Exploration Legend Scientific</Text>
 		</Row>
 		<Row Tag="LOC_CARD_AT_EXP_LEGEND_YUNI_2_DESCRIPTION">
-			<Text>For this Age, gain +15% Science[icon:YIELD_SCIENCE] at the cost of -10% Culture[icon:YIELD_CULTURE]</Text>
+			<Text>{LOC_CARD_AT_EXP_LEGEND_CATHERINE_2_DESCRIPTION}</Text>
 		</Row>
 
 		<Row Tag="LOC_CARD_AQ_YUNI_SCIENCE_NAME">

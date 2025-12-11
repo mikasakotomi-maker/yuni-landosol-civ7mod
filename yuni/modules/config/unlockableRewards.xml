@@ -3,7 +3,7 @@
     <Rewards>
         <!--TODO: Find a way to directly unlock it, and make icons for them-->
         <Row GameItemID="MEMENTO_YUNI_ROSETTA" DNAItemID="be5d7be29681a27de6bc8fb14cc94521" CustomData="mem_min_walking_stick" Type="UNLOCKABLEREWARD_TYPE_MEMENTO" Name="LOC_MEMENTO_YUNI_ROSETTA_NAME" Description="LOC_MEMENTO_YUNI_ROSETTA_DESCRIPTION" SortIndex="300000"/>
-        <Row GameItemID="MEMENTO_YUNI_YUNICOPTER" DNAItemID="5258cf628f597f2b9058dc706820283f" CustomData="mem_min_tricolor_cockade" Type="UNLOCKABLEREWARD_TYPE_MEMENTO" Name="LOC_MEMENTO_YUNI_YUNICOPTER_NAME" Description="LOC_MEMENTO_YUNI_YUNICOPTER_DESCRIPTION" SortIndex="300000"/>
+        <Row GameItemID="MEMENTO_YUNI_YUNI_S_NOTEBOOK" DNAItemID="5258cf628f597f2b9058dc706820283f" CustomData="mem_min_tricolor_cockade" Type="UNLOCKABLEREWARD_TYPE_MEMENTO" Name="LOC_MEMENTO_YUNI_YUNI_S_NOTEBOOK_NAME" Description="LOC_MEMENTO_YUNI_YUNI_S_NOTEBOOK_DESCRIPTION" SortIndex="300000"/>
         <Row GameItemID="MEMENTO_YUNI_PEN_AXE_REPLICA" DNAItemID="461b66205c4de2a9bef4964285e4dcd0" CustomData="mem_min_kusanagi_no_tsurugi" Type="UNLOCKABLEREWARD_TYPE_MEMENTO" Name="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_NAME" Description="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_DESCRIPTION" SortIndex="300000"/>
     </Rewards>
 </Database>
