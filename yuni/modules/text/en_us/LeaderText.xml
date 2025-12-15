@@ -5,13 +5,13 @@
 			<Text>Yuni</Text>
 		</Row>
 		<Row Tag="LOC_LEADER_YUNI_DESCRIPTION">
-			<Text>Have access to unique Legacy Cards which let you retain base yields, adjacency bonuses, and effects of one kind of [icon:YIELD_SCIENCE]Science Buildings in the next age. Gain a [icon:RADIAL_CIVICS]Civic Boost for every [icon:YIELD_SCIENCE]Science Building constructed. +50% [icon:YIELD_GOLD] Gold towards purchasing [icon:YIELD_SCIENCE]Science Buildings.</Text>
+			<Text>Have access to unique Legacy Cards which let you retain base yields, adjacency bonuses, and effects of one kind of [icon:YIELD_SCIENCE] Science Buildings in the next age. +1 [icon:YIELD_CULTURE] Culture and +1 [icon:YIELD_Production] Production per Age in all Settlements for every City with at least 1 [icon:YIELD_SCIENCE] Science Building. Gain a [icon:RADIAL_CIVICS] Civic Boost for every [icon:YIELD_SCIENCE] Science Building constructed.</Text>
 		</Row>
 		<Row Tag="LOC_TRAIT_LEADER_YUNI_ABILITY_NAME">
 			<Text>Teachings of Erudites</Text>
 		</Row>
 		<Row Tag="LOC_TRAIT_LEADER_YUNI_ABILITY_DESCRIPTION">
-			<Text>[LIST][LI]Have access to unique [B]Legacy Cards[/B] which retain base yields, adjacency bonuses, and effects of one kind of [icon:YIELD_SCIENCE][B]Science Buildings[/B] in the next age.[LI]Gain a [icon:RADIAL_CIVICS][B]Civic Boost[/B] for every [icon:YIELD_SCIENCE][B]Science Building[/B] constructed.[LI][B]+50% [icon:YIELD_GOLD] Gold[/B] towards purchasing [icon:YIELD_SCIENCE][B]Science Buildings[/B].[/LIST]</Text>
+			<Text>[BLIST][LI]Have access to unique [B]Legacy Cards[/B] which retain base yields, adjacency bonuses, and effects of one kind of [icon:YIELD_SCIENCE] [B]Science Buildings[/B] in the next age.[LI][B]+1 [icon:YIELD_CULTURE] Culture and +1 [icon:YIELD_Production] Production[/B] per Age in all [B]Settlements[/B] for every [B]City[/B] with at least 1 [icon:YIELD_SCIENCE] [B]Science Building[/B].[LI]Gain a [icon:RADIAL_CIVICS] [B]Civic Boost[/B] for every [icon:YIELD_SCIENCE] [B]Science Building[/B] constructed.[/LIST]</Text>
 		</Row>
 	</EnglishText>
 </Database>

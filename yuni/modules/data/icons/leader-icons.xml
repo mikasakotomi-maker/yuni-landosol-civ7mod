@@ -3,41 +3,43 @@
 	<IconDefinitions>
 		<Row>
 			<ID>LEADER_YUNI</ID>
-			<Path>fs://game/core/lp_hex_catherine_128</Path>
+			<Path>fs://game/core/lp_hex_yuni_128.png</Path>
 			<IconSize>128</IconSize>
 		</Row>
+		<!--Todo:_h-->
 		<Row>
 			<ID>LEADER_YUNI</ID>
-			<Path>fs://game/core/lp_hex_catherine_128_h</Path>
+			<Path>fs://game/core/lp_hex_yuni_128_h.png</Path>
 			<Context>LEADER_HAPPY</Context>
 			<IconSize>128</IconSize>
 		</Row>
+		<!--Todo:_a-->
 		<Row>
 			<ID>LEADER_YUNI</ID>
-			<Path>fs://game/core/lp_hex_catherine_128_a</Path>
+			<Path>fs://game/core/lp_hex_yuni_128_a.png</Path>
 			<Context>LEADER_ANGRY</Context>
 			<IconSize>128</IconSize>
 		</Row>
 		<Row>
 			<ID>LEADER_YUNI</ID>
-			<Path>fs://game/core/lp_hex_catherine_64</Path>
+			<Path>fs://game/core/lp_hex_yuni_64.png</Path>
 			<IconSize>64</IconSize>
 		</Row>
 		<Row>
 			<ID>LEADER_YUNI</ID>
-			<Path>fs://game/core/lp_circ_catherine_256</Path>
+			<Path>fs://game/core/lp_circ_yuni_256.png</Path>
 			<Context>CIRCLE_MASK</Context>
 			<IconSize>256</IconSize>
 		</Row>
 		<Row>
 			<ID>LEADER_YUNI</ID>
-			<Path>fs://game/core/lp_circ_catherine_128</Path>
+			<Path>fs://game/core/lp_circ_yuni_128.png</Path>
 			<Context>CIRCLE_MASK</Context>
 			<IconSize>128</IconSize>
 		</Row>
 		<Row>
 			<ID>LEADER_YUNI</ID>
-			<Path>fs://game/core/lp_circ_catherine_64</Path>
+			<Path>fs://game/core/lp_circ_yuni_64.png</Path>
 			<Context>CIRCLE_MASK</Context>
 			<IconSize>64</IconSize>
 		</Row>

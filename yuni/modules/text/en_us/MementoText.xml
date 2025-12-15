@@ -17,7 +17,7 @@
 			<Text>A talking silicon-based lifeform.</Text>
 		</Row>
 		<Row Tag="LOC_MEMENTO_YUNI_ROSETTA_FUNCTIONAL_DESCRIPTION">
-			<Text>Can purchase [icon:YIELD_SCIENCE] Science Buildings in [icon:YIELD_TOWNS] Towns.</Text>
+			<Text>+1 [icon:YIELD_SCIENCE] Science and +1 [icon:YIELD_Production] Production in all Settlements for every City with at least 1 [icon:YIELD_SCIENCE] Science Building.</Text>
 		</Row>
 		<Row Tag="LOC_MEMENTO_YUNI_YUNI_S_NOTEBOOK_NAME">
 			<Text>Yuni's Notebook</Text>
@@ -26,7 +26,7 @@
 			<Text>The world is a game.</Text>
 		</Row>
 		<Row Tag="LOC_MEMENTO_YUNI_YUNI_S_NOTEBOOK_FUNCTIONAL_DESCRIPTION">
-			<Text>Gain a [icon:RADIAL_TECH]Tech Boost for every [icon:YIELD_CULTURE]Culture Building constructed.</Text>
+			<Text>Gain a [icon:RADIAL_TECH] Tech Boost for every [icon:YIELD_CULTURE] Culture Building constructed.</Text>
 		</Row>
 		<Row Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_NAME">
 			<Text>Pen-Axe Replica</Text>
@@ -35,7 +35,7 @@
 			<Text>Pen is mightier, but not than axe.</Text>
 		</Row>
 		<Row Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_FUNCTIONAL_DESCRIPTION">
-			<Text>+1[icon:YIELD_Culture] Culture per Age on Science Buildings.</Text>
+			<Text>+1 [icon:YIELD_Culture] Culture per Age on Science Buildings.</Text>
 		</Row>
 	</EnglishText>
 </Database>

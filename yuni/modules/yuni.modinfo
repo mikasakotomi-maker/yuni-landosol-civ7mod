@@ -33,6 +33,14 @@
 	<ActionGroups>
 		<ActionGroup id="base-game-main-yuni" scope="game" criteria="always">
 			<Actions>
+				<ImportFiles>
+					<Item>textures/lp_circ_yuni_256.png</Item>
+					<Item>textures/lp_circ_yuni_128.png</Item>
+					<Item>textures/lp_circ_yuni_64.png</Item>
+					<Item>textures/lp_hex_yuni_64.png</Item>
+					<Item>textures/lp_hex_yuni_128.png</Item>
+					<Item>textures/lsl_yuni.png</Item>
+				</ImportFiles>
 				<UpdateIcons>
 					<Item>data/icons/leader-icons.xml</Item>
 					<Item>data/icons/card-icons.xml</Item>
@@ -148,6 +156,14 @@
 		</ActionGroup>
 		<ActionGroup id="shell-yuni" scope="shell" criteria="always">
 			<Actions>
+				<ImportFiles>
+					<Item>textures/lp_circ_yuni_256.png</Item>
+					<Item>textures/lp_circ_yuni_128.png</Item>
+					<Item>textures/lp_circ_yuni_64.png</Item>
+					<Item>textures/lp_hex_yuni_64.png</Item>
+					<Item>textures/lp_hex_yuni_128.png</Item>
+					<Item>textures/lsl_yuni.png</Item>
+				</ImportFiles>
 				<UpdateIcons>
 					<Item>data/icons/leader-icons.xml</Item>
 					<Item>data/icons/card-icons.xml</Item>

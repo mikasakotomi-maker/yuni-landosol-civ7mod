@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
-	<Modifier id="YUNI_MOD_SCIENCE_BUILDING_PURCHASE_RATE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
-		<Argument name="Percent">50</Argument>
-		<Argument name="BuildingTag">SCIENCE</Argument>
-		<Argument name="Tooltip">LOC_TRAIT_LEADER_YUNI_ABILITY_NAME</Argument>
-	</Modifier>
 	<Modifier id="YUNI_MOD_SCIENCE_BUILDING_CIVIC_BOOST" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_BUILT_TAGGED_CONSTRUCTIBLE">
@@ -15,6 +10,21 @@
 		<Argument name="SystemType">SYSTEM_CULTURE</Argument>
 		<Argument name="BoostPercentage">50</Argument>
 		<Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_ANY_UNLOCKED</Argument>
+	</Modifier>
+	<Modifier id="YUNI_MOD_SCIENCE_BUILDING_CITY_SETTLEMENTS_BONUS_ATTACH" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+			<Requirement type="REQUIREMENT_CITY_BUILT_TAGGED_CONSTRUCTIBLE">
+				<Argument name="Tags">SCIENCE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">YUNI_MOD_SCIENCE_BUILDING_CITY_SETTLEMENTS_BONUS</Argument>
+		<String context="Description">LOC_TRAIT_LEADER_YUNI_ABILITY_NAME</String>
+	</Modifier>
+	<Modifier id="YUNI_MOD_SCIENCE_BUILDING_CITY_SETTLEMENTS_BONUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<Argument name="YieldType">YIELD_CULTURE, YIELD_PRODUCTION</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_LEADER_YUNI_ABILITY_NAME</Argument>
 	</Modifier>
 	<Modifier id="YUNI_MOD_AGENDA_ROMANCE_OF_ARTS_SCHOLARS" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
 		<String context="Name">LOC_DIPLOMACY_AGENDA_ROMANCE_OF_ARTS_SCHOLARS_NAME</String>

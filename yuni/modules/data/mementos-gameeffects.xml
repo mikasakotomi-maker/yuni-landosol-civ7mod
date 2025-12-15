@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
-    <Modifier id="MEMENTO_YUNI_ROSETTA_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_TOWN_CAN_PURCHASE_TAGGED_CONSTRUCTIBLES">
+    <Modifier id="MEMENTO_YUNI_ROSETTA_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
         <SubjectRequirements>
-            <Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+            <Requirement type="REQUIREMENT_CITY_BUILT_TAGGED_CONSTRUCTIBLE">
+                <Argument name="Tags">SCIENCE</Argument>
+            </Requirement>
         </SubjectRequirements>
-        <Argument name="ConstructibleTag">SCIENCE</Argument>
+        <Argument name="ModifierId">MEMENTO_YUNI_ROSETTA_SCIENCE_BUILDING_CITY_SETTLEMENTS_BONUS</Argument>
+        <String context="Description">LOC_MEMENTO_YUNI_ROSETTA_NAME</String>
+    </Modifier>
+    <Modifier id="MEMENTO_YUNI_ROSETTA_SCIENCE_BUILDING_CITY_SETTLEMENTS_BONUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+        <Argument name="YieldType">YIELD_SCIENCE, YIELD_PRODUCTION</Argument>
+        <Argument name="Amount">1</Argument>
         <Argument name="Tooltip">LOC_MEMENTO_YUNI_ROSETTA_NAME</Argument>
     </Modifier>
     <Modifier id="MEMENTO_YUNI_YUNI_S_NOTEBOOK_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true">
