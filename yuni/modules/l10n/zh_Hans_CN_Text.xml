@@ -126,13 +126,13 @@
     </Replace>
 
     <Replace Tag="LOC_LEADER_YUNI_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>可使用独特的传承卡，用以在下个时代保留一种[icon:YIELD_SCIENCE]科技值建筑的基础产出、相邻加成和效果。每建成一座[icon:YIELD_SCIENCE]科技值建筑获得一个[icon:RADIAL_CIVICS]市政的进度提升。购买[icon:YIELD_SCIENCE]科技值建筑时+50%[icon:YIELD_GOLD]金币效用。</Text>
+      <Text>可使用独特的传承卡，用以在下个时代保留一种[icon:YIELD_SCIENCE]科技值建筑的基础产出、相邻加成和效果。每建成一座[icon:YIELD_SCIENCE]科技值建筑获得一个[icon:RADIAL_CIVICS]市政提升。购买[icon:YIELD_SCIENCE]科技值建筑时+50%[icon:YIELD_GOLD]金币效用。</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_YUNI_ABILITY_NAME" Language="zh_Hans_CN">
       <Text>博学者的教诲</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_YUNI_ABILITY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[LIST][LI]可使用独特的[B]传承卡[/B]，用以在下个时代保留一种[icon:YIELD_SCIENCE][B]科技值建筑[/B]的基础产出、相邻加成和效果。[LI]每建成一座[icon:YIELD_SCIENCE][B]科技值建筑[/B]获得一项[icon:RADIAL_CIVICS][B]市政的进度提升[/B]。[LI]购买[icon:YIELD_SCIENCE][B]科技值建筑[/B]时[B]+50%[icon:YIELD_GOLD]金币效用[/B]。[/LIST]</Text>
+      <Text>[LIST][LI]可使用独特的[B]传承卡[/B]，用以在下个时代保留一种[icon:YIELD_SCIENCE][B]科技值建筑[/B]的基础产出、相邻加成和效果。[LI]每建成一座[icon:YIELD_SCIENCE][B]科技值建筑[/B]获得一项[icon:RADIAL_CIVICS][B]市政提升[/B]。[LI]购买[icon:YIELD_SCIENCE][B]科技值建筑[/B]时[B]+50%[icon:YIELD_GOLD]金币效用[/B]。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_YUNI" Language="zh_Hans_CN">
       <Text>身为圣特蕾莎学园的第一才人，你深知知识的力量胜过蛮力。身处象牙塔内，你将经典记载精炼为世界运行的简明法则，无需冒险远行便可用文字指点江山。博学的优妮，努力深入群书探索，驱散谎言和无知，书写属于你的历史吧。</Text>
@@ -166,7 +166,7 @@
       <Text>这个世界是场游戏。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_YUNI_YUNI_S_NOTEBOOK_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>每建成一座[icon:YIELD_CULTURE]文化值建筑获得一项[icon:RADIAL_TECH]科技的进度提升。</Text>
+      <Text>每建成一座[icon:YIELD_CULTURE]文化值建筑获得一项[icon:RADIAL_TECH]科技提升。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_YUNI_PEN_AXE_REPLICA_NAME" Language="zh_Hans_CN">
       <Text>笔斧复制品</Text>
