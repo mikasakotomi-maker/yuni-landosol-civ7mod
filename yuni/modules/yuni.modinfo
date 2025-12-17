@@ -39,6 +39,12 @@
 					<Item>textures/lp_circ_yuni_64.png</Item>
 					<Item>textures/lp_hex_yuni_64.png</Item>
 					<Item>textures/lp_hex_yuni_128.png</Item>
+					<!--Workaround for now to resolve some broken icons-->
+					<Item>textures/lp_circ_yuni_256</Item>
+					<Item>textures/lp_circ_yuni_128</Item>
+					<Item>textures/lp_circ_yuni_64</Item>
+					<Item>textures/lp_hex_yuni_64</Item>
+					<Item>textures/lp_hex_yuni_128</Item>
 					<Item>textures/lsl_yuni.png</Item>
 				</ImportFiles>
 				<UpdateIcons>
@@ -162,6 +168,12 @@
 					<Item>textures/lp_circ_yuni_64.png</Item>
 					<Item>textures/lp_hex_yuni_64.png</Item>
 					<Item>textures/lp_hex_yuni_128.png</Item>
+					<!--Workaround for now to resolve some broken icons-->
+					<Item>textures/lp_circ_yuni_256</Item>
+					<Item>textures/lp_circ_yuni_128</Item>
+					<Item>textures/lp_circ_yuni_64</Item>
+					<Item>textures/lp_hex_yuni_64</Item>
+					<Item>textures/lp_hex_yuni_128</Item>
 					<Item>textures/lsl_yuni.png</Item>
 				</ImportFiles>
 				<UpdateIcons>
