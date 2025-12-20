@@ -9,6 +9,9 @@
 	<Dependencies>
 		<Mod id="base-standard" title="LOC_MODULE_BASE_STANDARD_NAME"/>
 	</Dependencies>
+	<References>
+		<Mod id="leader-fallback" title="leader-fallback"/>
+	</References>
 	<ActionCriteria>
 		<Criteria id="antiquity-age-current">
 			<AgeInUse>AGE_ANTIQUITY</AgeInUse>
@@ -46,6 +49,7 @@
 					<Item>textures/lp_hex_yuni_64</Item>
 					<Item>textures/lp_hex_yuni_128</Item>
 					<Item>textures/lsl_yuni.png</Item>
+					<Item>textures/fbl_yuni.png</Item>
 				</ImportFiles>
 				<UpdateIcons>
 					<Item>data/icons/leader-icons.xml</Item>
@@ -89,6 +93,9 @@
 
 					<Item locale="zh_Hans_CN">l10n/zh_Hans_CN_Text.xml</Item>
 				</UpdateText>
+				<UIScripts>
+					<Item>ui/leader-register.js</Item>
+				</UIScripts>
 			</Actions>
 		</ActionGroup>
 		<ActionGroup id="age-antiquity-main-yuni" scope="game" criteria="antiquity-age-current">
@@ -175,6 +182,7 @@
 					<Item>textures/lp_hex_yuni_64</Item>
 					<Item>textures/lp_hex_yuni_128</Item>
 					<Item>textures/lsl_yuni.png</Item>
+					<Item>textures/fbl_yuni.png</Item>
 				</ImportFiles>
 				<UpdateIcons>
 					<Item>data/icons/leader-icons.xml</Item>
@@ -204,6 +212,9 @@
 
 					<Item locale="zh_Hans_CN">l10n/zh_Hans_CN_Text.xml</Item>
 				</UpdateText>
+				<UIScripts>
+					<Item>ui/leader-register.js</Item>
+				</UIScripts>
 			</Actions>
 		</ActionGroup>
 	</ActionGroups>

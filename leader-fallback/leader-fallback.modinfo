@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="leader-fallback" version="1"
+	xmlns="ModInfo">
+	<Properties>
+		<Name>LOC_MODULE_LEADER_FALLBACK_NAME</Name>
+		<Description>LOC_MODULE_LEADER_FALLBACK_DESCRIPTION</Description>
+		<Authors>Shimamura et al. (with AI-generated slop)</Authors>
+		<Package>Mod</Package>
+		<AffectsSavedGames>0</AffectsSavedGames>
+	</Properties>
+	<Dependencies>
+		<Mod id="base-standard" title="LOC_MODULE_BASE_STANDARD_NAME" />
+	</Dependencies>
+	<ActionCriteria>
+		<Criteria id="always">
+			<AlwaysMet></AlwaysMet>
+		</Criteria>
+	</ActionCriteria>
+	<ActionGroups>
+		<ActionGroup id="shell-leader-fallback" scope="shell" criteria="always">
+			<Actions>
+				<UIScripts>
+					<!-- 配置系统 - 必须首先加载 -->
+					<Item>ui/shell/leader-select/custom-leader-config.js</Item>
+					<!-- 图片覆盖层模块 - 在配置系统之后加载 -->
+					<Item>ui/shell/create-panels/leader-overlay-image.js</Item>
+					<!-- 公共工具函数 - 在面板重写之前加载 -->
+					<Item>ui/shell/create-panels/panel-override-utils.js</Item>
+					<!-- 模型管理器重写 - 在配置和图片模块之后加载 -->
+					<Item>ui/shell/leader-select/leader-select-model-override.js</Item>
+					<!-- 面板重写 - 最后加载 -->
+					<Item>ui/shell/create-panels/leader-select-panel-override.js</Item>
+					<!-- 时代选择面板重写 -->
+					<Item>ui/shell/create-panels/age-select-panel-override.js</Item>
+					<!-- 文明选择面板重写 -->
+					<Item>ui/shell/create-panels/civ-select-panel-override.js</Item>
+					<!-- 游戏设置面板重写 -->
+					<Item>ui/shell/create-panels/game-setup-panel-override.js</Item>
+					<!-- 其他界面的覆盖层 -->
+					<Item>ui/diplomacy/leader-overlay-diplomacy.js</Item>
+					<Item>ui/main-menu/leader-overlay-mainmenu.js</Item>
+				</UIScripts>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="game-leader-fallback" scope="game" criteria="always">
+			<Actions>
+				<UIScripts>
+					<!-- 配置系统 - 必须在game scope中也加载，供外交界面使用 -->
+					<Item>ui/shell/leader-select/custom-leader-config.js</Item>
+					<!-- 图片覆盖层模块 - 外交界面也需要使用 -->
+					<Item>ui/shell/create-panels/leader-overlay-image.js</Item>
+					<!-- 核心配置模块 - 必须首先加载 -->
+					<Item>ui/diplomacy/diplomacy-config.js</Item>
+					<!-- 基础重写模块 - 在配置之后加载 -->
+					<Item>ui/diplomacy/diplomacy-core-overrides.js</Item>
+					<!-- 序列处理模块 - 在核心重写之后加载 -->
+					<Item>ui/diplomacy/diplomacy-sequence-handlers.js</Item>
+					<!-- 主入口模块 - 最后加载，负责协调所有模块 -->
+					<Item>ui/diplomacy/diplomacy-main.js</Item>
+					<!-- 兼容性入口 - 调用主入口模块 -->
+					<Item>ui/diplomacy/diplomacy-model-override.js</Item>
+				</UIScripts>
+			</Actions>
+		</ActionGroup>
+	</ActionGroups>
+	<LocalizedText>
+		<File>text/en_us/Text.xml</File>
+	</LocalizedText>
+</Mod>
