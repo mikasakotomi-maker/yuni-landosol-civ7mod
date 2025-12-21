@@ -236,7 +236,7 @@ function createOrUpdateImageOverlay(container, options = {}) {
 			pointer-events: none;
 			opacity: ${isDiplomacy ? '1' : '1'};
 			transform: ${isDiplomacy ? (position === "left" ? 'translateX(-800vw) scale(1.8)' : position === "right" ? 'translateX(800vw) scale(1.8)' : 'translateY(100px) scale(1.8)') : 'scale(1)'};
-			transition: ${isDiplomacy ? 'transform 0.3s ease-in-out' : 'none'};
+			transition: ${isDiplomacy ? 'transform 0.36s ease' : 'none'};
 			visibility: visible;
 		`;
 
