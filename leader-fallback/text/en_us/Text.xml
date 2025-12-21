@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameData>
 	<LocalizedText>
-		<Replace>
+		<Row>
 			<Tag>LOC_MODULE_LEADER_FALLBACK_NAME</Tag>
 			<Text>2D Leader Framework (Beta)</Text>
-		</Replace>
-		<Replace>
+		</Row>
+		<Row>
 			<Tag>LOC_MODULE_LEADER_FALLBACK_DESCRIPTION</Tag>
-			<Text>Experimental mod for using still image(s) for leader portrait, diplomacy, etc. You need to enable UI Scaling to make this mod work properly for now.</Text>
-		</Replace>
+			<Text>Experimental mod for using still image(s) for leader portrait, diplomacy, etc. Only support 16:9 aspect ratio for now. AI generated slop with countless bugs. USE AT YOUR OWN RISK!</Text>
+		</Row>
 	</LocalizedText>
 </GameData>

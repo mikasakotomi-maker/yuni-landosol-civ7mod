@@ -99,7 +99,7 @@ function immediatelyRemoveImageOverlay(position = "center") {
  * @param {number} scale - 缩放比例（默认1.1）
  * @param {number} duration - 动画持续时间（秒，默认1.1）
  */
-function zoomImageOverlays(positions, scale = 1.1, duration = 1.1) {
+function zoomImageOverlays(positions, scale = 1.1, duration = 1) {
 	try {
 		// 确保positions是数组
 		const positionArray = Array.isArray(positions) ? positions : [positions];
@@ -133,7 +133,7 @@ function zoomImageOverlays(positions, scale = 1.1, duration = 1.1) {
 			const overlayElement = container.querySelector(`.${overlayClassName}`);
 			if (overlayElement) {
 				// 应用缩放效果
-				overlayElement.style.transition = `transform ${duration}s ease-out`;
+				overlayElement.style.transition = `transform ${duration}s ease-in-out`;
 				overlayElement.style.transform = `scale(${scale})`;
 				console.log(`[Diplomacy Sequence] Applied zoom effect to ${position} overlay (scale: ${scale})`);
 			}

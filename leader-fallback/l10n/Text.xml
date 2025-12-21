@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+	<LocalizedText>
+		<Replace Tag="LOC_MODULE_LEADER_FALLBACK_NAME" Language="zh_Hans_CN">
+			<Text>2D领袖框架（测试版）</Text>
+		</Replace>
+		<Replace Tag="LOC_MODULE_LEADER_FALLBACK_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>用于在领袖肖像、外交等场合使用静态图片的实验性模组。目前只支持16:9屏幕比例。由AI生成，含有大量错误。使用时请务必小心！</Text>
+		</Replace>
+	</LocalizedText>
+</GameData>

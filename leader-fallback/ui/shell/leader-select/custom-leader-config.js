@@ -11,26 +11,26 @@ const IMAGE_LEADER_PREFIX = "LEADER_"; // 暂时使用所有LEADER_前缀作为�
 // 注意：age-select、civ-select、game-setup 会自动映射到 setup-panels（见 getImageDisplayConfig 函数）
 const PANEL_DISPLAY_CONFIGS = {
 	"leader-select": {
-		widthMultiplier: 0.5,
-		leftOffsetMultiplier: -0.5,  // 左对齐时，0表示图片左边缘在屏幕左边缘
-		topOffsetMultiplier: 0,  // 无垂直偏移（默认值）
-		position: "left"  // 左对齐
+		widthMultiplier: 0.8,
+		leftOffsetMultiplier: -0.56,  // 左对齐时，0表示图片左边缘在屏幕左边缘
+		topOffsetMultiplier: -0.02, 
+		position: "center"  
 	},
 	"setup-panels": {
-		widthMultiplier: 0.6,  // 时代、文明和游戏设置选择面板中模型更大且在中间（统一配置）
-		leftOffsetMultiplier: -0.5,  // 左对齐时，0表示图片左边缘在屏幕左边缘
-		topOffsetMultiplier: 0,  
-		position: "left"  // 左对齐
+		widthMultiplier: 1.25,  // 时代、文明和游戏设置选择面板中模型更大且在中间（统一配置）
+		leftOffsetMultiplier: -0.21,  // 左对齐时，0表示图片左边缘在屏幕左边缘
+		topOffsetMultiplier: 0.2,  
+		position: "center"  
 	},
 	"diplomacy-left": {
 		widthMultiplier: 2.75,  // 外交界面左侧
-		leftOffsetMultiplier: 0.20,
+		leftOffsetMultiplier: 0.1,
 		topOffsetMultiplier: 0.2,  
 		position: "left"
 	},
 	"diplomacy-right": {
 		widthMultiplier: 2.75,  // 外交界面右侧
-		leftOffsetMultiplier: 0.35,
+		leftOffsetMultiplier: 0.25,
 		topOffsetMultiplier: 0.2,  
 		position: "right"
 	}

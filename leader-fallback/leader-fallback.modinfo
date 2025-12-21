@@ -4,9 +4,9 @@
 	<Properties>
 		<Name>LOC_MODULE_LEADER_FALLBACK_NAME</Name>
 		<Description>LOC_MODULE_LEADER_FALLBACK_DESCRIPTION</Description>
-		<Authors>Shimamura et al. (with AI-generated slop)</Authors>
+		<Authors>Shimamura et al.</Authors>
 		<Package>Mod</Package>
-		<AffectsSavedGames>0</AffectsSavedGames>
+		<AffectsSavedGames>1</AffectsSavedGames>
 	</Properties>
 	<Dependencies>
 		<Mod id="base-standard" title="LOC_MODULE_BASE_STANDARD_NAME" />
@@ -40,6 +40,11 @@
 					<Item>ui/diplomacy/leader-overlay-diplomacy.js</Item>
 					<Item>ui/main-menu/leader-overlay-mainmenu.js</Item>
 				</UIScripts>
+				<UpdateText>
+					<Item>text/en_us/Text.xml</Item>
+
+					<Item locale="zh_Hans_CN">l10n/Text.xml</Item>
+				</UpdateText>
 			</Actions>
 		</ActionGroup>
 		<ActionGroup id="game-leader-fallback" scope="game" criteria="always">
@@ -60,10 +65,16 @@
 					<!-- 兼容性入口 - 调用主入口模块 -->
 					<Item>ui/diplomacy/diplomacy-model-override.js</Item>
 				</UIScripts>
+				<UpdateText>
+					<Item>text/en_us/Text.xml</Item>
+
+					<Item locale="zh_Hans_CN">l10n/Text.xml</Item>
+				</UpdateText>
 			</Actions>
 		</ActionGroup>
 	</ActionGroups>
 	<LocalizedText>
 		<File>text/en_us/Text.xml</File>
+		<File>l10n/Text.xml</File>
 	</LocalizedText>
 </Mod>
