@@ -12,7 +12,7 @@ const IMAGE_LEADER_PREFIX = "LEADER_"; // 暂时使用所有LEADER_前缀作为�
 const PANEL_DISPLAY_CONFIGS = {
 	"leader-select": {
 		widthMultiplier: 0.8,
-		leftOffsetMultiplier: -0.56,  // 左对齐时，0表示图片左边缘在屏幕左边缘
+		leftOffsetMultiplier: -0.58,  // 左对齐时，0表示图片左边缘在屏幕左边缘
 		topOffsetMultiplier: -0.02, 
 		position: "center"  
 	},
