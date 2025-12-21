@@ -425,7 +425,7 @@ function overrideShowLeadersFirstMeet(instance, classRef) {
 		// 相机动画在 FIRST_MEET_DELAY 秒后开始，旗帜也在此时开始动画
 		// 图片领袖应该在相机动画开始后 300ms 显示，与其他场景保持一致
 		const firstMeetDelay = this.FIRST_MEET_DELAY || 0.3;
-		const imageLeaderDelay = (firstMeetDelay * 1000) + 300; // 相机动画延迟 + 300ms，与其他场景一致
+		const imageLeaderDelay = (firstMeetDelay * 1000) + 433; // 相机动画延迟 + 300ms，与其他场景一致
 		if (isImg1) {
 			setTimeout(() => {
 				safeHandleImageLeaderDisplay(leaderID1, "left", this, null, true);
