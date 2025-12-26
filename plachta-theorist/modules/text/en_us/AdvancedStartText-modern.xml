@@ -5,14 +5,14 @@
 			<Text>Plachta Modern Legend Expansionist</Text>
 		</Row>
 		<Row Tag="LOC_CARD_AT_MOD_LEGEND_PLACHTA_THEORIST_1_DESCRIPTION">
-			<Text>For this Age, gain +15% Food[icon:YIELD_FOOD] at the cost of -10% Gold[icon:YIELD_GOLD]</Text>
+			<Text>{LOC_CARD_AT_MOD_LEGEND_CONFUCIUS_1_NAME}</Text>
 		</Row>
 
 		<Row Tag="LOC_CARD_AT_MOD_LEGEND_PLACHTA_THEORIST_2_NAME">
 			<Text>Plachta Modern Legend Scientific</Text>
 		</Row>
 		<Row Tag="LOC_CARD_AT_MOD_LEGEND_PLACHTA_THEORIST_2_DESCRIPTION">
-			<Text>For this Age, gain +15% Science[icon:YIELD_SCIENCE] at the cost of -10% Culture[icon:YIELD_CULTURE]</Text>
+			<Text>{LOC_CARD_AT_MOD_LEGEND_CONFUCIUS_2_DESCRIPTION}</Text>
 		</Row>
 	</EnglishText>
 </Database>

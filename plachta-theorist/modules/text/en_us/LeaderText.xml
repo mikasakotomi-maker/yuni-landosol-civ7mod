@@ -5,13 +5,13 @@
 			<Text>Plachta, Curious Theorist</Text>
 		</Row>
 		<Row Tag="LOC_LEADER_PLACHTA_THEORIST_DESCRIPTION">
-			<Text>All Buildings receive a +1[icon:YIELD_Science] Science Adjacency for Resources. 15% of[icon:YIELD_FOOD] Food is refunded when a Settlement grows. +15%[icon:YIELD_HAPPINESS] Happiness when you are having more Techs than 75% of other Leaders. +30%[icon:YIELD_SCIENCE] Science but -15%[icon:YIELD_HAPPINESS] Happiness when you are not.</Text>
+			<Text>All [icon:CITY_BUILDING_LIST] Buildings receive a +1 [icon:YIELD_Science] Science Adjacency for [icon:RADIAL_RESOURCES] Resources. 15% of [icon:YIELD_FOOD] Food is refunded when a Settlement grows. +15% [icon:YIELD_HAPPINESS] Happiness when you are having more Techs than 75% of other Leaders. +30% [icon:YIELD_SCIENCE] Science but -15% [icon:YIELD_HAPPINESS] Happiness when you are not.</Text>
 		</Row>
 		<Row Tag="LOC_TRAIT_LEADER_PLACHTA_THEORIST_ABILITY_NAME">
 			<Text>Immature Philospher</Text>
 		</Row>
 		<Row Tag="LOC_TRAIT_LEADER_PLACHTA_THEORIST_ABILITY_DESCRIPTION">
-			<Text>[LIST][LI]All Buildings receive a [B]+1[icon:YIELD_Science] Science Adjacency[/B] for [B]Resources[/B].[LI][B]15% of[icon:YIELD_FOOD] Food[/B] is refunded when a Settlement [B]grows[/B].[LI][B]+15%[icon:YIELD_HAPPINESS] Happiness[/B] when you are [B]having more Techs[/B] than 75% of other Leaders. +30%[icon:YIELD_SCIENCE] Science but -15%[icon:YIELD_HAPPINESS] Happiness[/B] when [B]you are not[/B].[/LIST]</Text>
+			<Text>[BLIST][LI]All [icon:CITY_BUILDING_LIST] Buildings receive a [B]+1 [icon:YIELD_Science] Science Adjacency[/B] for [icon:RADIAL_RESOURCES] [B]Resources[/B].[LI][B]15% of [icon:YIELD_FOOD] Food[/B] is refunded when a Settlement [B]grows[/B].[LI][B]+15% [icon:YIELD_HAPPINESS] Happiness[/B] when you are [B]having more Techs[/B] than 75% of other Leaders. +30% [icon:YIELD_SCIENCE] Science but -15% [icon:YIELD_HAPPINESS] Happiness[/B] when [B]you are not[/B].[/LIST]</Text>
 		</Row>
 	</EnglishText>
 </Database>

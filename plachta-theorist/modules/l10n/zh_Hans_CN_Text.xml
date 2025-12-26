@@ -5,33 +5,33 @@
       <Text>普拉芙妲探索时代传奇扩张</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_PLACHTA_THEORIST_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在此时代中+15%[icon:YIELD_FOOD]食物，但-10%[icon:YIELD_GOLD]金币</Text>
+      <Text>{LOC_CARD_AT_EXP_LEGEND_CONFUCIUS_1_DESCRIPTION}</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_PLACHTA_THEORIST_2_NAME" Language="zh_Hans_CN">
       <Text>普拉芙妲探索时代传奇科技</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_PLACHTA_THEORIST_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在此时代中+15%[icon:YIELD_SCIENCE]科技值，但-10%[icon:YIELD_CULTURE]文化值</Text>
+      <Text>{LOC_CARD_AT_EXP_LEGEND_CONFUCIUS_2_DESCRIPTION}</Text>
     </Replace>
 
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_PLACHTA_THEORIST_1_NAME" Language="zh_Hans_CN">
       <Text>普拉芙妲近世时代传奇扩张</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_PLACHTA_THEORIST_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在此时代中+15%[icon:YIELD_FOOD]食物，但-10%[icon:YIELD_GOLD]金币</Text>
+      <Text>{LOC_CARD_AT_MOD_LEGEND_CONFUCIUS_1_NAME}</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_PLACHTA_THEORIST_2_NAME" Language="zh_Hans_CN">
       <Text>普拉芙妲近世时代传奇科技</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_PLACHTA_THEORIST_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在此时代中+15%[icon:YIELD_SCIENCE]科技值，但-10%[icon:YIELD_CULTURE]文化值</Text>
+      <Text>{LOC_CARD_AT_MOD_LEGEND_CONFUCIUS_2_DESCRIPTION}</Text>
     </Replace>
 
     <Replace Tag="LOC_MOD_ATTRIBUTE_EXPANSIONIST_LEGEND_PLACHTA_THEORIST_L1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>传奇解锁。将城镇转变为城市时+50%[icon:YIELD_GOLD]金币效用。</Text>
+      <Text>{LOC_MOD_ATTRIBUTE_LEGEND_UNLOCK} {LOC_MOD_ATTRIBUTE_EXPANSIONIST_LEGEND_CONFUCIUS_L1_DESCRIPTION_BASE}</Text>
     </Replace>
     <Replace Tag="LOC_MOD_ATTRIBUTE_SCIENTIFIC_LEGEND_PLACHTA_THEORIST_L2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>传奇解锁。标准[icon:YIELD_GOLD]金币、[icon:YIELD_PRODUCTION]生产力和[icon:YIELD_SCIENCE]科技值建筑相邻加成+1。</Text>
+      <Text>{LOC_MOD_ATTRIBUTE_LEGEND_UNLOCK} {LOC_MOD_ATTRIBUTE_SCIENTIFIC_LEGEND_CONFUCIUS_L2_DESCRIPTION_BASE}</Text>
     </Replace>
 
     <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_PLACHTA_THEORIST_TITLE" Language="zh_Hans_CN">
@@ -107,13 +107,13 @@
     </Replace>
 
     <Replace Tag="LOC_LEADER_PLACHTA_THEORIST_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>所有建筑从资源获得+1[icon:YIELD_Science]科技值相邻加成。定居点发展时将退还15%的[icon:YIELD_FOOD]食物。拥有的科技多于75%的其它领袖时，+15%[icon:YIELD_HAPPINESS]幸福值，否则+30%[icon:YIELD_SCIENCE]科技值但-15%[icon:YIELD_HAPPINESS]幸福值。</Text>
+      <Text>所有[icon:CITY_BUILDING_LIST]建筑从[icon:RADIAL_RESOURCES]资源获得+1[icon:YIELD_Science]科技值相邻加成。定居点发展时将退还15%的[icon:YIELD_FOOD]食物。拥有的科技多于75%的其它领袖时，+15%[icon:YIELD_HAPPINESS]幸福值，否则+30%[icon:YIELD_SCIENCE]科技值但-15%[icon:YIELD_HAPPINESS]幸福值。</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_PLACHTA_THEORIST_ABILITY_NAME" Language="zh_Hans_CN">
       <Text>未熟贤者</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_PLACHTA_THEORIST_ABILITY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[LIST][LI]所有建筑从[B]资源[/B]获得[B]+1[icon:YIELD_Science]科技值相邻加成[/B]。[LI]定居点[B]发展[/B]时将退还[B]15%的[icon:YIELD_FOOD]食物[/B]。[LI]拥有的[B]科技[/B]多于75%的其它领袖时，[B]+15%[icon:YIELD_HAPPINESS]幸福值[/B]，[B]否则+30%[icon:YIELD_SCIENCE]科技值但-15%[icon:YIELD_HAPPINESS]幸福值[/B]。[/LIST]</Text>
+      <Text>[BLIST][LI]所有[icon:CITY_BUILDING_LIST]建筑从[icon:RADIAL_RESOURCES][B]资源[/B]获得[B]+1[icon:YIELD_Science]科技值相邻加成[/B]。[LI]定居点[B]发展[/B]时将退还[B]15%的[icon:YIELD_FOOD]食物[/B]。[LI]拥有的[B]科技[/B]多于75%的其它领袖时，[B]+15%[icon:YIELD_HAPPINESS]幸福值[/B]，[B]否则+30%[icon:YIELD_SCIENCE]科技值但-15%[icon:YIELD_HAPPINESS]幸福值[/B]。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_PLACHTA_THEORIST" Language="zh_Hans_CN">
       <Text>年轻的普拉芙妲为了在旱灾中拯救家乡而研习炼金术。度过危机后，她夜以继日地继续研究，以使炼金术更多地造福人们。不久，普拉芙妲不得不与曾经的童年好友劳尔德为敌，并将自己变为一本魔法书，阻止他耗尽自然力量。数百年过去，这本不可思议之书成为了另一位炼金术士苏菲·诺伊恩缪拉的良师益友，后者最终帮助她重获人形。</Text>

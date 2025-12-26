@@ -26,7 +26,7 @@
 			<Text>A tool to summon rainclouds.</Text>
 		</Row>
 		<Row Tag="LOC_MEMENTO_PLACHTA_THEORIST_CLOUDBURST_HYDRITE_FUNCTIONAL_DESCRIPTION">
-			<Text>+1[icon:YIELD_FOOD] Food per Age on Warehouse Buildings.</Text>
+			<Text>+1 YIELD_FOOD] Food per Age on Warehouse Buildings.</Text>
 		</Row>
 		<Row Tag="LOC_MEMENTO_PLACHTA_THEORIST_WIEGENTRAUM_NAME">
 			<Text>Wiegentraum</Text>
@@ -35,7 +35,7 @@
 			<Text>Contains wishes.</Text>
 		</Row>
 		<Row Tag="LOC_MEMENTO_PLACHTA_THEORIST_WIEGENTRAUM_FUNCTIONAL_DESCRIPTION">
-			<Text>+1[icon:YIELD_Science] Science and +1[icon:YIELD_Culture] Culture on Ageless Buildings.</Text>
+			<Text>+1 [icon:YIELD_Science] Science and +1 [icon:YIELD_Culture] Culture on Ageless Buildings.</Text>
 		</Row>
 	</EnglishText>
 </Database>

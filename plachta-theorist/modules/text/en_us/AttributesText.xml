@@ -2,10 +2,10 @@
 <Database>
 	<EnglishText>
 		<Row Tag="LOC_MOD_ATTRIBUTE_EXPANSIONIST_LEGEND_PLACHTA_THEORIST_L1_DESCRIPTION">
-			<Text>Legend Unlock. +50% [icon:YIELD_GOLD]Gold towards converting a Town to a City.</Text>
+			<Text>{LOC_MOD_ATTRIBUTE_LEGEND_UNLOCK} {LOC_MOD_ATTRIBUTE_EXPANSIONIST_LEGEND_CONFUCIUS_L1_DESCRIPTION_BASE}</Text>
 		</Row>
 		<Row Tag="LOC_MOD_ATTRIBUTE_SCIENTIFIC_LEGEND_PLACHTA_THEORIST_L2_DESCRIPTION">
-			<Text>Legend Unlock. +1 to the adjacencies of standard [icon:YIELD_GOLD]Gold, [icon:YIELD_PRODUCTION]Production, and [icon:YIELD_SCIENCE]Science Buildings.</Text>
+			<Text>{LOC_MOD_ATTRIBUTE_LEGEND_UNLOCK} {LOC_MOD_ATTRIBUTE_SCIENTIFIC_LEGEND_CONFUCIUS_L2_DESCRIPTION_BASE}</Text>
 		</Row>
 	</EnglishText>
 </Database>

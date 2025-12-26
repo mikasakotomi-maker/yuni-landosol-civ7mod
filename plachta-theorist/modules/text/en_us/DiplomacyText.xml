@@ -5,7 +5,7 @@
 			<Text>Sore Loser</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_AGENDA_SORE_LOSER_ALCHEMIST_DESC">
-			<Text>Likes the Civilization with the lowest[icon:YIELD_SCIENCE] Science. Dislikes the one with the highest[icon:YIELD_SCIENCE] Science.</Text>
+			<Text>Likes the Civilization with the lowest [icon:YIELD_SCIENCE] Science. Dislikes the one with the highest [icon:YIELD_SCIENCE] Science.</Text>
 		</Row>
 	</EnglishText>
 </Database>
