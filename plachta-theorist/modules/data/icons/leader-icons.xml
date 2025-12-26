@@ -3,7 +3,7 @@
 	<IconDefinitions>
 		<Row>
 			<ID>LEADER_PLACHTA_THEORIST</ID>
-			<Path>fs://game/core/lp_hex_catherine_128</Path>
+			<Path>fs://game/core/lp_hex_plachta_theorist_128</Path>
 			<IconSize>128</IconSize>
 		</Row>
 		<Row>

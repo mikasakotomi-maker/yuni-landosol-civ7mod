@@ -33,6 +33,11 @@
 	<ActionGroups>
 		<ActionGroup id="base-game-main-plachta-theorist" scope="game" criteria="always">
 			<Actions>
+				<ImportFiles>
+					<Item>textures/lp_hex_plachta_theorist_128.png</Item>
+					<!--Workaround for now to resolve some broken icons-->
+					<Item>textures/lp_hex_plachta_theorist_128</Item>
+				</ImportFiles>
 				<UpdateIcons>
 					<Item>data/icons/leader-icons.xml</Item>
 					<Item>data/icons/card-icons.xml</Item>
@@ -135,6 +140,11 @@
 		</ActionGroup>
 		<ActionGroup id="shell-plachta-theorist" scope="shell" criteria="always">
 			<Actions>
+				<ImportFiles>
+					<Item>textures/lp_hex_plachta_theorist_128.png</Item>
+					<!--Workaround for now to resolve some broken icons-->
+					<Item>textures/lp_hex_plachta_theorist_128</Item>
+				</ImportFiles>
 				<UpdateIcons>
 					<Item>data/icons/leader-icons.xml</Item>
 					<Item>data/icons/card-icons.xml</Item>
