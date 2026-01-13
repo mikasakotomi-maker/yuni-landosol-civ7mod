@@ -144,6 +144,107 @@ function zoomImageOverlays(positions, scale = 1.1, duration = 1) {
 }
 
 /**
+ * 更新图片领袖的立绘状态（用于宣战、和平等外交序列）
+ * 直接操作DOM更新背景图片，不依赖其他模块
+ * @param {string} leaderID - 领袖ID
+ * @param {string} position - 位置 ("left", "right")
+ * @param {string} state - 状态 ("declaring_war", "hostile", "neutral", "friendly", "defeated", "accepting_peace", "rejecting_peace", "response_positive", "response_negative")
+ */
+function updateImageLeaderPortrait(leaderID, position, state) {
+	try {
+		if (!leaderID || !position || !state) {
+			console.error(`[Diplomacy Sequence] updateImageLeaderPortrait: Invalid parameters - leaderID=${leaderID}, position=${position}, state=${state}`);
+			return;
+		}
+
+		console.error(`[Diplomacy Sequence] updateImageLeaderPortrait called: leaderID=${leaderID}, position=${position}, state=${state}`);
+
+		// 获取新状态的图片路径
+		let newImagePath = null;
+		
+		// 定义状态回退链
+		const stateFallbackChains = {
+			"declaring_war": ["declaring_war", "hostile", "neutral"],
+			"defeated": ["defeated", "hostile", "neutral"],
+			"accepting_peace": ["accepting_peace", "friendly", "neutral"],
+			"rejecting_peace": ["rejecting_peace", "hostile", "neutral"],
+			"response_positive": ["response_positive", "friendly", "neutral"],
+			"response_negative": ["response_negative", "hostile", "neutral"],
+			"meeting": ["meeting", "neutral"],
+			"friendly": ["friendly", "neutral"],
+			"hostile": ["hostile", "neutral"],
+			"neutral": ["neutral"]
+		};
+		
+		const fallbackChain = stateFallbackChains[state] || [state, "neutral"];
+
+		// 方法1: 尝试使用 CustomLeaderConfig
+		if (!newImagePath && window.CustomLeaderConfig && window.CustomLeaderConfig.getImagePath) {
+			newImagePath = window.CustomLeaderConfig.getImagePath(leaderID, state);
+			console.error(`[Diplomacy Sequence] CustomLeaderConfig.getImagePath returned: ${newImagePath}`);
+		}
+		
+		// 方法2: 直接从 localStorage 读取配置
+		if (!newImagePath) {
+			try {
+				const storageKey = "LeaderOverlayImageRegistryV1";
+				const raw = localStorage.getItem(storageKey);
+				console.error(`[Diplomacy Sequence] localStorage raw: ${raw ? raw.substring(0, 200) + '...' : 'null'}`);
+				if (raw) {
+					const registry = JSON.parse(raw);
+					const config = registry[leaderID];
+					console.error(`[Diplomacy Sequence] Config for ${leaderID}:`, JSON.stringify(config));
+					if (config) {
+						// 按回退链查找图片
+						if (config.diplomacyStates) {
+							for (const fallbackState of fallbackChain) {
+								if (config.diplomacyStates[fallbackState]) {
+									newImagePath = config.diplomacyStates[fallbackState];
+									console.error(`[Diplomacy Sequence] Found image for state ${fallbackState}: ${newImagePath}`);
+									break;
+								}
+							}
+						}
+						// 最后回退到基础图片
+						if (!newImagePath) {
+							newImagePath = config.imagePath;
+							console.error(`[Diplomacy Sequence] Falling back to base imagePath: ${newImagePath}`);
+						}
+					}
+				}
+			} catch (storageError) {
+				console.error(`[Diplomacy Sequence] Failed to read from localStorage:`, storageError);
+			}
+		}
+
+		if (!newImagePath) {
+			console.error(`[Diplomacy Sequence] No image path found for leader ${leaderID} with state ${state}`);
+			return;
+		}
+
+		// 根据位置确定类名
+		const overlayClassName = `leader-overlay-image-block-diplomacy-${position}`;
+
+		// 在 document.body 中查找覆盖层元素
+		const overlayBlock = document.body.querySelector(`.${overlayClassName}`);
+		console.error(`[Diplomacy Sequence] Looking for overlay with class: ${overlayClassName}, found: ${overlayBlock ? 'yes' : 'no'}`);
+		
+		if (overlayBlock) {
+			// 更新背景图片
+			const oldImage = overlayBlock.style.backgroundImage;
+			overlayBlock.style.backgroundImage = `url("${newImagePath}")`;
+			console.error(`[Diplomacy Sequence] SUCCESS! Updated overlay for ${leaderID} at ${position}: ${oldImage} -> url("${newImagePath}")`);
+		} else {
+			console.error(`[Diplomacy Sequence] Overlay block not found! Available elements with 'leader-overlay' class:`);
+			const allOverlays = document.body.querySelectorAll('[class*="leader-overlay"]');
+			allOverlays.forEach(el => console.error(`  - ${el.className}`));
+		}
+	} catch (error) {
+		console.error(`[Diplomacy Sequence] Failed to update image leader portrait:`, error);
+	}
+}
+
+/**
  * 为图片领袖设置自动VO完成定时器
  * 当右侧或两侧都是图片领袖时，由于没有3D模型动画，需要手动触发VO完成事件
  * @param {object} context - LeaderModelManager 实例
@@ -728,14 +829,15 @@ function overrideShowLeadersDeclareWar(instance, classRef) {
 		this.simpleLeaderPopUpCameraAnimation(false, 0);
 
 		// 对图片领袖延迟显示覆盖层
+		// 宣战场景：直接使用 "declaring_war" 状态显示立绘
 		if (isImg1) {
 			setTimeout(() => {
-				safeHandleImageLeaderDisplay(leaderID1, "left", this, null, true);
+				safeHandleImageLeaderDisplay(leaderID1, "left", this, "declaring_war", true);
 			}, 300);
 		}
 		if (isImg2) {
 			setTimeout(() => {
-				safeHandleImageLeaderDisplay(leaderID2, "right", this, null, true);
+				safeHandleImageLeaderDisplay(leaderID2, "right", this, "declaring_war", true);
 			}, 300);
 		}
 
@@ -745,10 +847,20 @@ function overrideShowLeadersDeclareWar(instance, classRef) {
 		// - 如果 isLocalPlayerInitiator 为 false：等待右侧动画（VO_DwAttacker）
 		// 如果等待的一侧是图片领袖（3D模型为null），则不等待该侧动画
 		const originalBeginDeclareWarPlayerSequence = this.beginDeclareWarPlayerSequence.bind(this);
-		// 保存图片领袖状态，用于后续的缩放处理
+		// 保存图片领袖状态和领袖ID，用于后续的缩放处理和立绘切换
 		const savedIsImg1 = isImg1;
 		const savedIsImg2 = isImg2;
+		const savedLeaderID1 = leaderID1;
+		const savedLeaderID2 = leaderID2;
 		this.beginDeclareWarPlayerSequence = function() {
+			// 宣战时切换图片领袖的立绘到 "declaring_war" 状态
+			if (savedIsImg1 && savedLeaderID1) {
+				updateImageLeaderPortrait(savedLeaderID1, "left", "declaring_war");
+			}
+			if (savedIsImg2 && savedLeaderID2) {
+				updateImageLeaderPortrait(savedLeaderID2, "right", "declaring_war");
+			}
+
 			// 检查哪些侧有3D模型
 			const hasLeft3D = this.leader3DModelLeft != null;
 			const hasRight3D = this.leader3DModelRight != null;

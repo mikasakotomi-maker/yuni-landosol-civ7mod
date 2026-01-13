@@ -151,7 +151,15 @@ function createOrUpdateImageOverlay(container, options = {}) {
 
 		// 查找是否已存在覆盖层（使用body或world容器，因为fixed定位不依赖容器）
 		const searchContainer = document.body;
-		let overlayBlock = searchContainer.querySelector(`.${overlayClassName}`);
+		// 查找时跳过正在被移除的元素
+		let overlayBlock = null;
+		const existingBlocks = searchContainer.querySelectorAll(`.${overlayClassName}`);
+		for (const block of existingBlocks) {
+			if (!block._isBeingRemoved) {
+				overlayBlock = block;
+				break;
+			}
+		}
 
 		if (!overlayBlock) {
 			// 创建新的图片覆盖层
@@ -246,10 +254,36 @@ function createOrUpdateImageOverlay(container, options = {}) {
 				const img = new Image();
 				img.onerror = () => {
 					console.warn(`[Leader Overlay Image] Image failed to load for leader ${leaderID}: ${finalImageUrl}`);
-					// 如果图片加载失败，隐藏覆盖层但不移除，以便重试
-					if (overlayBlock && overlayBlock.parentNode) {
-						overlayBlock.style.opacity = '0';
-						overlayBlock.style.pointerEvents = 'none';
+					// 尝试回退到基础图片
+					if (overlayBlock && overlayBlock.parentNode && window.CustomLeaderConfig) {
+						// 获取基础图片路径（不带状态参数）
+						const baseImagePath = window.CustomLeaderConfig.getImagePath(leaderID, null);
+						if (baseImagePath && baseImagePath !== finalImageUrl) {
+							console.log(`[Leader Overlay Image] Falling back to base image for ${leaderID}: ${baseImagePath}`);
+							// 验证基础图片是否能加载
+							const baseImg = new Image();
+							baseImg.onerror = () => {
+								console.warn(`[Leader Overlay Image] Base image also failed for ${leaderID}: ${baseImagePath}`);
+								overlayBlock.style.opacity = '0';
+								overlayBlock.style.pointerEvents = 'none';
+							};
+							baseImg.onload = () => {
+								// 基础图片加载成功，更新背景
+								overlayBlock.style.backgroundImage = `url("${baseImagePath}")`;
+								overlayBlock.style.opacity = '1';
+							};
+							baseImg.src = baseImagePath;
+						} else {
+							// 没有可用的回退图片，隐藏覆盖层
+							overlayBlock.style.opacity = '0';
+							overlayBlock.style.pointerEvents = 'none';
+						}
+					} else {
+						// 无法获取基础图片，隐藏覆盖层
+						if (overlayBlock && overlayBlock.parentNode) {
+							overlayBlock.style.opacity = '0';
+							overlayBlock.style.pointerEvents = 'none';
+						}
 					}
 				};
 				img.onload = () => {
@@ -706,15 +740,16 @@ function tryCreateDiplomacyImageOverlay(leaderID, position = "center", delay = 3
 			topOffsetMultiplier = (typeof displayConfig.topOffsetMultiplier === "number" && displayConfig.topOffsetMultiplier !== undefined) ? displayConfig.topOffsetMultiplier : 0;
 		}
 
-		// 获取图片路径（预留状态参数接口，当前不实现状态映射）
-		// 将来可以扩展为：window.CustomLeaderConfig.getImagePath(leaderID, state)
+		// 获取图片路径（传递状态参数用于状态映射）
 		let imagePath = null;
 		try {
 			if (typeof window.CustomLeaderConfig.getImagePath !== "function") {
 				console.error(`[Leader Overlay Image] CustomLeaderConfig.getImagePath is not a function for leader ${leaderID}`);
 				return;
 			}
+			console.error(`[Leader Overlay Image] Getting image path for ${leaderID} with state: ${state}`);
 			imagePath = window.CustomLeaderConfig.getImagePath(leaderID, state);
+			console.error(`[Leader Overlay Image] Got image path: ${imagePath}`);
 		} catch (pathError) {
 			console.error(`[Leader Overlay Image] Failed to get image path for leader ${leaderID}:`, pathError);
 			return; // 如果没有图片路径，无法创建覆盖层
@@ -771,7 +806,7 @@ function tryCreateDiplomacyImageOverlay(leaderID, position = "center", delay = 3
  * 尝试更新外交界面的图片覆盖层（用于状态变化）
  * @param {string} leaderID - 领袖ID
  * @param {string} position - 位置 ("left", "right", "center")
- * @param {string} newState - 新状态 ("neutral", "friendly", "hostile", "response_positive", "response_negative")
+ * @param {string} newState - 新状态 ("neutral", "friendly", "hostile", "response_positive", "response_negative", "declaring_war", "defeated", "accepting_peace", "rejecting_peace")
  */
 function tryUpdateDiplomacyImageOverlay(leaderID, position = "center", newState = null) {
 	try {
@@ -780,26 +815,67 @@ function tryUpdateDiplomacyImageOverlay(leaderID, position = "center", newState 
 			return;
 		}
 
-		// 检查是否为图片领袖
-		if (!window.CustomLeaderConfig || !window.CustomLeaderConfig.isImageLeader(leaderID)) {
-			return;
-		}
-
-		// 获取新状态的图片路径
+		// 获取新状态的图片路径（支持 shell scope 和 game scope）
 		let newImagePath = null;
+		
+		// 方法1: 尝试使用 shell scope 的 CustomLeaderConfig
 		if (window.CustomLeaderConfig && window.CustomLeaderConfig.getImagePath) {
 			newImagePath = window.CustomLeaderConfig.getImagePath(leaderID, newState);
+		}
+		
+		// 方法2: 如果方法1失败，尝试使用 game scope 的 DiplomacyConfig
+		if (!newImagePath && window.DiplomacyConfig && window.DiplomacyConfig.getImagePath) {
+			newImagePath = window.DiplomacyConfig.getImagePath(leaderID, newState);
+		}
+		
+		// 方法3: 如果以上都失败，直接从 localStorage 读取配置
+		if (!newImagePath) {
+			try {
+				const storageKey = "LeaderOverlayImageRegistryV1";
+				const raw = localStorage.getItem(storageKey);
+				if (raw) {
+					const registry = JSON.parse(raw);
+					const config = registry[leaderID];
+					if (config) {
+						// 定义状态回退链
+						const stateFallbackChains = {
+							"declaring_war": ["declaring_war", "hostile", "neutral"],
+							"defeated": ["defeated", "hostile", "neutral"],
+							"accepting_peace": ["accepting_peace", "friendly", "neutral"],
+							"rejecting_peace": ["rejecting_peace", "hostile", "neutral"],
+							"response_positive": ["response_positive", "friendly", "neutral"],
+							"response_negative": ["response_negative", "hostile", "neutral"],
+							"meeting": ["meeting", "neutral"],
+							"friendly": ["friendly", "neutral"],
+							"hostile": ["hostile", "neutral"],
+							"neutral": ["neutral"]
+						};
+						
+						const fallbackChain = stateFallbackChains[newState] || [newState, "neutral"];
+						
+						// 按回退链查找图片
+						if (config.diplomacyStates) {
+							for (const fallbackState of fallbackChain) {
+								if (config.diplomacyStates[fallbackState]) {
+									newImagePath = config.diplomacyStates[fallbackState];
+									break;
+								}
+							}
+						}
+						
+						// 最后回退到基础图片
+						if (!newImagePath) {
+							newImagePath = config.imagePath;
+						}
+					}
+				}
+			} catch (storageError) {
+				console.warn(`[Leader Overlay Image] Failed to read from localStorage:`, storageError);
+			}
 		}
 
 		if (!newImagePath) {
 			console.warn(`[Leader Overlay Image] No image path found for leader ${leaderID} with state ${newState}`);
-			return;
-		}
-
-		// 查找现有的覆盖层
-		const container = getDiplomacyContainer();
-		if (!container) {
-			console.warn(`[Leader Overlay Image] Diplomacy container not found for update`);
 			return;
 		}
 
@@ -808,16 +884,48 @@ function tryUpdateDiplomacyImageOverlay(leaderID, position = "center", newState 
 			? `leader-overlay-image-block-diplomacy-${position}`
 			: "leader-overlay-image-block-diplomacy";
 
-		// 查找覆盖层元素
-		const overlayBlock = container.querySelector(`.${overlayClassName}`);
+		// 在 document.body 中查找覆盖层元素（覆盖层使用 fixed 定位，添加到 body）
+		const overlayBlock = document.body.querySelector(`.${overlayClassName}`);
 		if (overlayBlock) {
-			// 更新背景图片
-			overlayBlock.style.backgroundImage = `url("${newImagePath}")`;
-			console.log(`[Leader Overlay Image] Updated overlay for leader ${leaderID} at position ${position} to state ${newState}`);
+			// 保存当前图片URL，以便回退
+			const currentImageUrl = overlayBlock.style.backgroundImage;
+			
+			// 先验证新图片是否能加载，再更新
+			const img = new Image();
+			img.onerror = () => {
+				console.warn(`[Leader Overlay Image] State image failed to load for ${leaderID}: ${newImagePath}`);
+				// 尝试回退到基础图片
+				let baseImagePath = null;
+				if (window.CustomLeaderConfig && window.CustomLeaderConfig.getImagePath) {
+					baseImagePath = window.CustomLeaderConfig.getImagePath(leaderID, null);
+				} else if (window.DiplomacyConfig && window.DiplomacyConfig.getImagePath) {
+					baseImagePath = window.DiplomacyConfig.getImagePath(leaderID, null);
+				}
+				
+				if (baseImagePath && baseImagePath !== newImagePath) {
+					console.log(`[Leader Overlay Image] Falling back to base image for ${leaderID}: ${baseImagePath}`);
+					// 验证基础图片
+					const baseImg = new Image();
+					baseImg.onerror = () => {
+						console.warn(`[Leader Overlay Image] Base image also failed for ${leaderID}, keeping current`);
+						// 保持当前图片不变，不做任何操作
+					};
+					baseImg.onload = () => {
+						overlayBlock.style.backgroundImage = `url("${baseImagePath}")`;
+					};
+					baseImg.src = baseImagePath;
+				}
+				// 如果没有可用的基础图片，保持当前图片不变
+			};
+			img.onload = () => {
+				// 图片加载成功，更新背景
+				overlayBlock.style.backgroundImage = `url("${newImagePath}")`;
+				console.log(`[Leader Overlay Image] Updated overlay for leader ${leaderID} at position ${position} to state ${newState}, image: ${newImagePath}`);
+			};
+			img.src = newImagePath;
 		} else {
 			// 如果找不到现有覆盖层，尝试创建新的
 			console.warn(`[Leader Overlay Image] Overlay block not found for update, creating new one`);
-			const panelType = position === "left" ? "diplomacy-left" : "diplomacy-right";
 			tryCreateDiplomacyImageOverlay(leaderID, position, 0, newState);
 		}
 	} catch (error) {
@@ -858,6 +966,12 @@ function tryRemoveDiplomacyImageOverlay(leaderID = null, position = "center", de
 
 		// 对每个覆盖层执行退出动画（与进入动画反向）
 		overlayBlocksToRemove.forEach(overlayBlock => {
+			// 跳过已经在移除中的元素
+			if (overlayBlock._isBeingRemoved) {
+				return;
+			}
+			overlayBlock._isBeingRemoved = true;
+
 			// 确定位置（左侧或右侧）
 			let exitPosition = "center";
 			if (overlayBlock.classList.contains("leader-overlay-image-block-diplomacy-left")) {

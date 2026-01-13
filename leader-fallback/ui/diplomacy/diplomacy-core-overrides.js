@@ -147,7 +147,7 @@ function handleImageLeaderDisplay(leaderID, position, context, state = null, ski
 				const creationDelay = (position === "left" || position === "right") ? 300 : 0;
 				setTimeout(() => {
 					try {
-						// 如果没有提供state，从序列类型和上下文推断
+						// 如果已经提供了state，直接使用；否则从序列类型和上下文推断
 						let finalState = state;
 						if (!finalState && context) {
 							// 尝试从context获取playerID
@@ -175,6 +175,7 @@ function handleImageLeaderDisplay(leaderID, position, context, state = null, ski
 							finalState = "neutral";
 						}
 						
+						console.error(`[Diplomacy Core] Creating overlay for ${leaderID} at ${position} with state: ${finalState}`);
 						window.LeaderOverlayImage.tryCreateDiplomacyImageOverlay(leaderID, position, 0, finalState);
 					} catch (createError) {
 						console.error(`[Diplomacy Core] Failed to create overlay for leader ${leaderID}:`, createError);

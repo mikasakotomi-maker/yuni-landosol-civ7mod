@@ -10,6 +10,26 @@
 // 共享存储键：与 shell scope 保持一致，用于读取已注册的领袖
 const SHARED_REGISTRY_STORAGE_KEY = "LeaderOverlayImageRegistryV1";
 
+/**
+ * 自动立绘后缀模板配置（与 shell scope 保持一致）
+ * 当mod没有明确配置diplomacyStates时，系统会自动根据基础图片路径尝试这些后缀
+ */
+const AUTO_PORTRAIT_SUFFIX_TEMPLATES = {
+	"declaring_war": ["_angry", "_hostile", "_war", "_declaring_war"],
+	"hostile": ["_angry", "_hostile"],
+	"friendly": ["_happy", "_friendly", "_smile"],
+	"defeated": ["_defeated", "_sad", "_lose"],
+	"accepting_peace": ["_peace", "_happy", "_friendly"],
+	"rejecting_peace": ["_angry", "_hostile", "_reject"],
+	"response_positive": ["_happy", "_friendly", "_positive"],
+	"response_negative": ["_angry", "_hostile", "_negative"],
+	"meeting": ["_meeting", "_neutral"],
+	"neutral": []
+};
+
+// 已验证存在的自动推断路径缓存
+const AUTO_INFERRED_PATH_CACHE = {};
+
 // 测试配置：使用现有领袖和图片进行测试
 const DIPLOMACY_TEST_IMAGE_LEADERS = {
 	"LEADER_YUNI": {
@@ -83,9 +103,11 @@ function diplomacyIsImageLeader(leaderID) {
 }
 
 /**
- * 获取图片路径（game scope独立实现）
+ * 获取图片路径（game scope独立实现，支持状态回退机制 + 自动路径推断）
  * @param {string} leaderID - 领袖ID
- * @param {string} state - 可选，外交状态（"neutral", "friendly", "hostile", "response_positive", "response_negative"）
+ * @param {string} state - 可选，外交状态
+ *   支持的状态: "neutral", "friendly", "hostile", "response_positive", "response_negative",
+ *               "meeting", "declaring_war", "defeated", "accepting_peace", "rejecting_peace"
  * @returns {string|null} 图片路径，如果不是图片领袖则返回null
  */
 function diplomacyGetImagePath(leaderID, state = null) {
@@ -99,24 +121,105 @@ function diplomacyGetImagePath(leaderID, state = null) {
 		if (path) return path;
 	}
 
-	// 否则使用本地配置
+	// 否则使用本地配置（带回退机制 + 自动推断）
 	const config = DIPLOMACY_TEST_IMAGE_LEADERS[leaderID];
-	if (config) {
-		// 如果提供了state，优先查找状态图片
-		if (state && config.diplomacyStates && config.diplomacyStates[state]) {
-			return config.diplomacyStates[state];
+	if (!config) {
+		return null;
+	}
+
+	const basePath = config.imagePath || null;
+
+	// 如果没有提供 state，直接返回基础图片
+	if (!state) {
+		return basePath;
+	}
+
+	// 定义状态回退链
+	const stateFallbackChains = {
+		"declaring_war": ["declaring_war", "hostile", "neutral"],
+		"defeated": ["defeated", "hostile", "neutral"],
+		"accepting_peace": ["accepting_peace", "friendly", "neutral"],
+		"rejecting_peace": ["rejecting_peace", "hostile", "neutral"],
+		"response_positive": ["response_positive", "friendly", "neutral"],
+		"response_negative": ["response_negative", "hostile", "neutral"],
+		"meeting": ["meeting", "neutral"],
+		"friendly": ["friendly", "neutral"],
+		"hostile": ["hostile", "neutral"],
+		"neutral": ["neutral"]
+	};
+
+	// 获取回退链
+	const fallbackChain = stateFallbackChains[state] || [state, "neutral"];
+
+	// 按顺序查找可用的状态图片
+	for (const fallbackState of fallbackChain) {
+		// 1. 首先检查是否有明确配置的 diplomacyStates
+		if (config.diplomacyStates && config.diplomacyStates[fallbackState]) {
+			return config.diplomacyStates[fallbackState];
 		}
-		// 如果state没有设置图片，回退到 "neutral" 状态
-		if (state && state !== "neutral" && config.diplomacyStates && config.diplomacyStates["neutral"]) {
-			return config.diplomacyStates["neutral"];
-		}
-		// 回退到基础图片路径
-		if (config.imagePath) {
-			return config.imagePath;
+
+		// 2. 尝试自动推断路径
+		const inferredPath = diplomacyTryInferStatePath(leaderID, basePath, fallbackState, config);
+		if (inferredPath) {
+			return inferredPath;
 		}
 	}
 
-	return null;
+	// 最后回退到基础图片路径
+	return basePath;
+}
+
+/**
+ * 尝试根据基础路径和状态自动推断状态立绘路径（game scope版本）
+ * @param {string} leaderID - 领袖ID
+ * @param {string} basePath - 基础图片路径
+ * @param {string} state - 目标状态
+ * @param {object} config - 领袖配置
+ * @returns {string|null} 推断出的路径，如果无法推断则返回null
+ */
+function diplomacyTryInferStatePath(leaderID, basePath, state, config) {
+	if (!basePath || !state) {
+		return null;
+	}
+
+	// 检查是否禁用了自动推断（默认启用）
+	if (config && config.autoInferPaths === false) {
+		return null;
+	}
+
+	// 检查缓存
+	const cacheKey = `${leaderID}_${state}`;
+	if (AUTO_INFERRED_PATH_CACHE[cacheKey] !== undefined) {
+		return AUTO_INFERRED_PATH_CACHE[cacheKey];
+	}
+
+	// 获取该状态的后缀模板
+	const suffixTemplates = AUTO_PORTRAIT_SUFFIX_TEMPLATES[state];
+	if (!suffixTemplates || suffixTemplates.length === 0) {
+		return null;
+	}
+
+	// 解析基础路径
+	const lastSlashIndex = basePath.lastIndexOf('/');
+	const lastDotIndex = basePath.lastIndexOf('.');
+	
+	if (lastSlashIndex === -1 || lastDotIndex === -1 || lastDotIndex <= lastSlashIndex) {
+		return null;
+	}
+
+	const directory = basePath.substring(0, lastSlashIndex + 1);
+	const fileName = basePath.substring(lastSlashIndex + 1, lastDotIndex);
+	const extension = basePath.substring(lastDotIndex);
+
+	// 返回第一个候选路径
+	const inferredPath = `${directory}${fileName}${suffixTemplates[0]}${extension}`;
+	
+	// 缓存结果
+	AUTO_INFERRED_PATH_CACHE[cacheKey] = inferredPath;
+	
+	console.log(`[Diplomacy Config] Auto-inferred path for ${leaderID}/${state}: ${inferredPath}`);
+	
+	return inferredPath;
 }
 
 // 等待配置系统加载（现在主要用于等待LeaderOverlayImage）
